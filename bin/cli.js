@@ -152,7 +152,7 @@ function help() {
   return [
     `\n${c.bold(`npx ${name}`)} ${c.gray('[options]')}\n`,
     ...opts.map(([f, t]) => `${INDENT}${c.green(f.padEnd(20))}${t}`),
-    `\n${INDENT}${c.gray('Also available as: npx harun · npx sokullu · npx suphero · npx harunsokullu')}\n`,
+    `\n${INDENT}${c.gray('Also available as: npx harunsokullu · npx sokullu · npx suphero')}\n`,
   ].join('\n');
 }
 

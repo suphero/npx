@@ -1,11 +1,10 @@
 # Harun Sokullu — CV in your terminal
 
 ```sh
-npx harun
+npx harunsokullu
 # or
 npx sokullu
 npx suphero
-npx harunsokullu
 ```
 
 | Flag | |
@@ -24,7 +23,7 @@ Zero dependencies. Content lives in [`src/data.js`](src/data.js).
 ## Publishing
 
 Pushing to `main` runs `.github/workflows/publish.yml`. It publishes every name
-(`harun`, `sokullu`, `suphero`, `harunsokullu`) whose current version is not on npm yet,
+(`harunsokullu`, `sokullu`, `suphero`) whose current version is not on npm yet,
 using npm trusted publishing (OIDC), so no token is stored anywhere.
 
 To release: bump the version and push.

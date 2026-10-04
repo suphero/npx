@@ -13,7 +13,7 @@ const os = require('os');
 const path = require('path');
 const { execFileSync } = require('child_process');
 
-const NAMES = ['harun', 'sokullu', 'suphero', 'harunsokullu'];
+const NAMES = ['harunsokullu', 'sokullu', 'suphero'];
 const REGISTRY = 'https://registry.npmjs.org/';
 
 const root = path.resolve(__dirname, '..');
