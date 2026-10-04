@@ -36,7 +36,8 @@ jobs:
           node bin/cli.js --all --en
           node bin/cli.js --all --tr
 
-      - name: Publish new versions
-        run: npm run publish:all
+      # Staged: each new version waits for approval (2FA) on npmjs.com
+      - name: Stage new versions
+        run: npm run publish:all -- --stage
         env:
           NPM_CONFIG_LOGLEVEL: ${{ inputs.debug && 'verbose' || 'notice' }}

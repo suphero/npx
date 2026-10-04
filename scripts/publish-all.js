@@ -4,7 +4,10 @@
 // Publishes the same package under every name in NAMES.
 // Names whose current version is already on npm are skipped, so it is safe to
 // run on every push; bump the version in package.json to release.
+// With --stage, versions are staged (`npm stage publish`) and go live only after
+// approval with 2FA on npmjs.com or `npm stage approve <id>`.
 // Usage: npm run publish:all            (real publish)
+//        npm run publish:all -- --stage
 //        npm run publish:all -- --dry-run
 //        npm run publish:all -- --otp=123456
 
@@ -18,7 +21,8 @@ const REGISTRY = 'https://registry.npmjs.org/';
 
 const root = path.resolve(__dirname, '..');
 const pkg = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
-const extra = process.argv.slice(2);
+const stage = process.argv.includes('--stage');
+const extra = process.argv.slice(2).filter((a) => a !== '--stage');
 
 function isPublished(name, version) {
   try {
@@ -43,7 +47,8 @@ for (const name of NAMES) {
 
   console.log(`\n▶ ${name}@${pkg.version}`);
   try {
-    execFileSync('npm', ['publish', '--registry', REGISTRY, '--access', 'public', ...extra], {
+    const cmd = stage ? ['stage', 'publish', '.'] : ['publish'];
+    execFileSync('npm', [...cmd, '--registry', REGISTRY, '--access', 'public', ...extra], {
       cwd: dir,
       stdio: 'inherit',
     });
