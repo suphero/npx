@@ -9,6 +9,10 @@ on:
         description: Verbose npm logs
         type: boolean
         default: false
+      stage:
+        description: Stage instead of publishing (approve with 2FA on npmjs.com)
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -36,8 +40,7 @@ jobs:
           node bin/cli.js --all --en
           node bin/cli.js --all --tr
 
-      # Staged: each new version waits for approval (2FA) on npmjs.com
-      - name: Stage new versions
-        run: npm run publish:all -- --stage
+      - name: Publish new versions
+        run: npm run publish:all ${{ inputs.stage && '-- --stage' || '' }}
         env:
           NPM_CONFIG_LOGLEVEL: ${{ inputs.debug && 'verbose' || 'notice' }}
