@@ -1,0 +1,43 @@
+{
+  "name": "harun",
+  "version": "1.0.0",
+  "description": "Harun Sokullu — CV in your terminal. Backend architect & team lead.",
+  "bin": {
+    "harun": "bin/cli.js",
+    "sokullu": "bin/cli.js",
+    "suphero": "bin/cli.js",
+    "harunsokullu": "bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "src"
+  ],
+  "scripts": {
+    "start": "node bin/cli.js",
+    "publish:all": "node scripts/publish-all.js"
+  },
+  "keywords": [
+    "cv",
+    "resume",
+    "card",
+    "npx",
+    "harun",
+    "sokullu",
+    "suphero",
+    "harunsokullu"
+  ],
+  "author": "Harun Sokullu <harunsokullu@gmail.com> (https://harunsokullu.com)",
+  "license": "MIT",
+  "homepage": "https://harunsokullu.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suphero/npx.git"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  }
+}
