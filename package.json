@@ -1,6 +1,6 @@
 {
   "name": "harunsokullu",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Harun Sokullu — CV in your terminal. Backend architect & team lead.",
   "bin": {
     "sokullu": "bin/cli.js",
