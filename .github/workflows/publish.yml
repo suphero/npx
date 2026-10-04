@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      debug:
+        description: Verbose npm logs
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -33,3 +38,5 @@ jobs:
 
       - name: Publish new versions
         run: npm run publish:all
+        env:
+          NPM_CONFIG_LOGLEVEL: ${{ inputs.debug && 'verbose' || 'notice' }}
